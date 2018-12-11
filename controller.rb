@@ -6,5 +6,12 @@ also_reload('./models/*')
 
 
 get '/game/:hand1/:hand2' do
-  RPSGame.check_win(params[:hand1], params[:hand2])
+  @result = RPSGame.check_win(params[:hand1], params[:hand2])
+
+  # binding.pry
+  erb( :result )
+end
+
+get '/' do
+  erb(:home)
 end
